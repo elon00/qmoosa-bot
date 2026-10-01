@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Qmoosa Bot - Autonomous Agentic Super-OS</title>
+  <style>
+    :root {
+      --bg: #070B14;
+      --card: #0E1526;
+      --border: #1B253D;
+      --accent-green: #00FF88;
+      --accent-cyan: #00F0FF;
+      --accent-purple: #9D4EDD;
+      --text: #F0F4F8;
+      --muted: #8E9BAE;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, monospace; }
+    body { background: var(--bg); color: var(--text); line-height: 1.6; }
+    header { display: flex; justify-content: space-between; align-items: center; padding: 24px 48px; border-bottom: 1px solid var(--border); background: var(--card); }
+    .logo { font-size: 20px; font-weight: 800; color: var(--accent-green); letter-spacing: 1.5px; display: flex; align-items: center; gap: 10px; }
+    .badge { font-size: 11px; padding: 4px 10px; background: rgba(0, 255, 136, 0.15); border: 1px solid var(--accent-green); border-radius: 20px; color: var(--accent-green); font-weight: 600; }
+    .nav-links a { color: var(--muted); text-decoration: none; margin-left: 24px; font-size: 14px; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--accent-green); }
+    .btn { background: var(--accent-green); color: #000; padding: 10px 22px; border-radius: 6px; font-weight: 700; text-decoration: none; border: none; cursor: pointer; transition: transform 0.15s, opacity 0.2s; }
+    .btn:hover { opacity: 0.9; transform: translateY(-1px); }
+    .btn-secondary { background: transparent; color: var(--accent-cyan); border: 1px solid var(--accent-cyan); }
+    .hero { text-align: center; padding: 80px 24px 50px; max-width: 900px; margin: 0 auto; }
+    .hero h1 { font-size: 46px; font-weight: 900; margin-bottom: 18px; line-height: 1.2; }
+    .hero h1 span { color: var(--accent-green); }
+    .hero p { font-size: 18px; color: var(--muted); margin-bottom: 32px; }
+    .hero-actions { display: flex; gap: 16px; justify-content: center; }
+    .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; padding: 40px 48px; max-width: 1200px; margin: 0 auto; }
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 24px; transition: border-color 0.2s; }
+    .card:hover { border-color: var(--accent-green); }
+    .card h3 { font-size: 18px; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+    .card p { font-size: 14px; color: var(--muted); }
+    .terminal-container { max-width: 1000px; margin: 40px auto; background: #000; border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+    .terminal-header { background: #131B2E; padding: 10px 16px; display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--muted); }
+    .terminal-dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+    .terminal-body { padding: 20px; font-family: 'Courier New', monospace; font-size: 13px; color: var(--accent-green); height: 200px; overflow-y: auto; }
+    .pricing-table { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 1100px; margin: 40px auto; padding: 0 24px; }
+    .price-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 32px; text-align: center; }
+    .price-card.featured { border-color: var(--accent-cyan); position: relative; }
+    .price-card h4 { font-size: 20px; margin-bottom: 12px; }
+    .price { font-size: 36px; font-weight: 800; color: var(--accent-green); margin-bottom: 16px; }
+    footer { text-align: center; padding: 40px; border-top: 1px solid var(--border); color: var(--muted); font-size: 13px; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">
+      <span>⚡ QMOOSA BOT</span>
+      <span class="badge">NIST PQC ACTIVE</span>
+    </div>
+    <div class="nav-links">
+      <a href="#features">Architecture</a>
+      <a href="#terminal">Live Stream</a>
+      <a href="#pricing">Tokenomics & Staking</a>
+      <a href="https://github.com/elon00/qmoosa-bot" target="_blank" class="btn">GitHub Repository</a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <h1>Autonomous Agentic Super-OS with <span>Full Computer Control</span></h1>
+    <p>Operate autonomous digital workforces with Bézier-curve screen navigation, Conway Automaton task self-healing, RFC HTTP 402 micro-settlements, and Post-Quantum Security.</p>
+    <div class="hero-actions">
+      <a href="https://github.com/elon00/qmoosa-bot" class="btn">Deploy Super-Swarm</a>
+      <a href="#features" class="btn btn-secondary">Explore 9 Pillars</a>
+    </div>
+  </section>
+
+  <!-- Live Autonomous Stream Simulation -->
+  <div class="terminal-container" id="terminal">
+    <div class="terminal-header">
+      <span class="terminal-dot" style="background:#ff5f56"></span>
+      <span class="terminal-dot" style="background:#ffbd2e"></span>
+      <span class="terminal-dot" style="background:#27c93f"></span>
+      <span style="margin-left: 8px;">qmoosa_bot_live_swarm_telemetry.log</span>
+    </div>
+    <div class="terminal-body" id="termLogs">
+      <div>[INFO] [ConwayEngine] Swarm generation 14 active. 4 cells thriving.</div>
+      <div>[INFO] [ModelRouter] Claude 3.7 Sonnet executing GUI coordinate grounding at [960, 1006].</div>
+      <div>[INFO] [ScreenDriver] Cubic Bézier curve injected. Keystrokes streaming with Gaussian jitter.</div>
+      <div>[INFO] [DynamicQR] Generated NPCI UPI QR URI: upi://pay?pa=qmoosa@bot&am=25000.00&cu=INR</div>
+      <div>[INFO] [x402] Challenge verified on Algorand MainNet. Service CAPTCHA_BYPASS_AI delivered.</div>
+      <div>[INFO] [PQC] Signed action audit with NIST FIPS 204 (ML-DSA-65). Status: VERIFIED.</div>
+      <div>[INFO] [Tokenomics] 50% transaction fee burned permanently. Current supply: 9,999,990 QMOOSA.</div>
+    </div>
+  </div>
+
+  <section class="features" id="features">
+    <div class="card">
+      <h3>🖥️ Full Screen Controller</h3>
+      <p>Autonomous mouse/keyboard interaction using cubic Bézier paths and human-like typing jitter to bypass advanced bot detectors on Instagram, LinkedIn, and CRM portals.</p>
+    </div>
+    <div class="card">
+      <h3>🧬 Conway Automaton Engine</h3>
+      <p>Cellular automata 2D lattice that coordinates emergent swarms. Automatically spawns child bots on overload and performs self-healing rebirth on task failures.</p>
+    </div>
+    <div class="card">
+      <h3>🌐 Multi-Model Mesh</h3>
+      <p>Dynamic routing between Claude 3.7 Sonnet (GUI & Code), Gemini 2.5 Flash (Vision & Massive Context), Grok 3 (Realtime OSINT), and DeepSeek-R1 (Local Edge).</p>
+    </div>
+    <div class="card">
+      <h3>⚡ x402 Bazaar Protocol</h3>
+      <p>RFC HTTP 402 "Payment Required" autonomous micro-service bazaar where agents advertise, procure, and settle sub-tasks trustlessly via smart escrows.</p>
+    </div>
+    <div class="card">
+      <h3>🛡️ Post-Quantum Security</h3>
+      <p>NIST FIPS 203 (ML-KEM-768) key encapsulation and FIPS 204 (ML-DSA-65) quantum-resistant signatures guaranteeing forward secrecy and non-repudiation.</p>
+    </div>
+    <div class="card">
+      <h3>📱 Multi-Wallet & Dynamic QR</h3>
+      <p>Dual-rail financial capabilities: Instant NPCI UPI dynamic QR generation alongside Solana Pay, Algorand MainNet, and Bitcoin Lightning wallets.</p>
+    </div>
+  </section>
+
+  <section class="pricing-table" id="pricing">
+    <div class="price-card">
+      <h4>Scout Tier</h4>
+      <div class="price">1,000 $QMOOSA</div>
+      <p>1 Concurrent Agent</p>
+      <p>Standard OSINT Scraping</p>
+      <p>Dynamic QR Pay Rails</p>
+    </div>
+    <div class="price-card featured">
+      <div class="badge" style="margin-bottom: 12px; display: inline-block;">MOST POPULAR</div>
+      <h4>Operator Swarm</h4>
+      <div class="price">10,000 $QMOOSA</div>
+      <p>5 Concurrent Agents</p>
+      <p>Claude 3.7 Computer Control</p>
+      <p>x402 Micro-Bazaar Access</p>
+    </div>
+    <div class="price-card">
+      <h4>Swarm Master</h4>
+      <div class="price">100,000 $QMOOSA</div>
+      <p>Unlimited Agents</p>
+      <p>Conway Self-Healing Grid</p>
+      <p>Zero-Fee x402 Trading</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Qmoosa Bot Autonomous Technologies. Open-source under Apache 2.0 License.</p>
+  </footer>
+
+</body>
+</html>

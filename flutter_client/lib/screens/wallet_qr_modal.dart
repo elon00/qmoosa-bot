@@ -55,7 +55,7 @@ class _WalletQrModalState extends State<WalletQrModal> {
                         const Text('GENERATE INVOICE QR', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
                         const SizedBox(height: 12),
                         DropdownButtonFormField<String>(
-                          value: _selectedRail,
+                          initialValue: _selectedRail,
                           decoration: const InputDecoration(
                             labelText: 'Payment Rail',
                             border: OutlineInputBorder(),
@@ -145,7 +145,7 @@ class _WalletQrModalState extends State<WalletQrModal> {
         decoration: BoxDecoration(
           color: const Color(0xFF0E1526),
           borderRadius: BorderRadius.circular(8),
-          border: Border.all(color: accentColor.withOpacity(0.3)),
+          border: Border.all(color: accentColor.withValues(alpha: 0.3)),
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,

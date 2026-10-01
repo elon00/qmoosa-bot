@@ -1,0 +1,70 @@
+version: '3.8'
+
+services:
+  # -------------------------------------------------------------
+  # 1. Qmoosa Bot Autonomous Core & Screen Controller
+  # -------------------------------------------------------------
+  qmoosa-core:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: qmoosa_bot_core
+    restart: always
+    environment:
+      - ENVIRONMENT=production
+      - DISPLAY=:99
+      - DATABASE_URL=postgresql://qmoosa:qmoosa_secret@postgres:5432/qmoosa_db
+      - REDIS_URL=redis://redis:6379/0
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY:-mock_key}
+      - GEMINI_API_KEY=${GEMINI_API_KEY:-mock_key}
+      - XAI_API_KEY=${XAI_API_KEY:-mock_key}
+    ports:
+      - "8000:8000"   # FastAPI / OpenAPI Gateway
+      - "6080:6080"   # noVNC Live Screen Viewer
+    depends_on:
+      - postgres
+      - redis
+    volumes:
+      - ./data:/app/data
+    networks:
+      - qmoosa_network
+
+  # -------------------------------------------------------------
+  # 2. PostgreSQL 16 Persistence Database
+  # -------------------------------------------------------------
+  postgres:
+    image: postgres:16-alpine
+    container_name: qmoosa_postgres
+    restart: always
+    environment:
+      POSTGRES_USER: qmoosa
+      POSTGRES_PASSWORD: qmoosa_secret
+      POSTGRES_DB: qmoosa_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - qmoosa_network
+
+  # -------------------------------------------------------------
+  # 3. Redis Message Broker & Agent Pub/Sub
+  # -------------------------------------------------------------
+  redis:
+    image: redis:7-alpine
+    container_name: qmoosa_redis
+    restart: always
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - qmoosa_network
+
+networks:
+  qmoosa_network:
+    driver: bridge
+
+volumes:
+  postgres_data:
+  redis_data:
