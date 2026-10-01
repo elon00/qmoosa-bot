@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:convert';
 import 'package:serverpod/serverpod.dart';
 
 /// Serverpod Endpoint for streaming real-time agent state,
