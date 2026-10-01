@@ -1,0 +1,11 @@
+class: AgentState
+fields:
+  agentId: String
+  role: String
+  state: int
+  coordinateX: int
+  coordinateY: int
+  energy: int
+  currentModel: String
+  lastAction: String
+  timestamp: DateTime

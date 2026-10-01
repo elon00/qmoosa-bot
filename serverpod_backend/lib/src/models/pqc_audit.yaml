@@ -1,0 +1,9 @@
+class: PqcAudit
+fields:
+  auditId: String
+  actionPayload: String
+  algorithm: String
+  quantumSignature: String
+  verificationKey: String
+  isValid: bool
+  timestamp: DateTime

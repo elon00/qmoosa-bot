@@ -1,0 +1,13 @@
+class: X402Invoice
+fields:
+  orderId: String
+  serviceName: String
+  buyerId: String
+  receiverWallet: String
+  amountMicro: int
+  token: String
+  blockchain: String
+  challenge: String
+  status: String
+  settlementTx: String?
+  createdAt: DateTime
