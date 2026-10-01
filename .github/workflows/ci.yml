@@ -36,6 +36,9 @@ jobs:
   serverpod-and-dart:
     name: Serverpod Backend Verification
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: serverpod_backend
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
@@ -45,9 +48,11 @@ jobs:
         with:
           sdk: stable
 
+      - name: Install Serverpod Backend Dependencies
+        run: dart pub get
+
       - name: Verify Serverpod Endpoint Code
-        run: |
-          dart analyze serverpod_backend/bin serverpod_backend/lib
+        run: dart analyze bin lib
 
   flutter-lint-and-analysis:
     name: Flutter Cross-Platform Client Analysis
